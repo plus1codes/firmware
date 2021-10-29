@@ -1,0 +1,33 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\8051_I2C\8051_normal_code\DoCD.uvproj
+Project File Date:  10/27/2021
+
+<h2>Output:</h2>
+Rebuild target 'DoCD'
+compiling docd.c...
+compiling Int_Vec.c...
+compiling SunReg.c...
+compiling i2c_slave_common.c...
+compiling diag.c...
+compiling rbus.c...
+compiling i2c_slave.c...
+assembling startup.a51...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TX_AVAILABLE?I2C_SLAVE_COMMON
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PRINTF_INFO?I2C_SLAVE_COMMON
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?I2C_SEND_NACK?I2C_SLAVE
+Program Size: data=227.1 xdata=179 code=8033
+creating hex file from "ir"...
+User command #1: D:\8051_I2C\8051_normal_code\srec_cat.exe ir.hex -Intel -byte-swap 4 -fill 0xff 0 4096 -o ir.bin -Binary
+srec_cat: ir.hex: 4: warning: data records not in strictly ascending order
+    (expected >= 0x1ED2, got 0x1E35)
+"ir" - 0 Error(s), 3 Warning(s).
+Clean started: Project: 'DoCD'
+   deleting intermediate output files for target 'DoCD'
