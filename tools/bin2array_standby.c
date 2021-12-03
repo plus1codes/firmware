@@ -5,7 +5,7 @@ FILE *fi,*fo;
 unsigned int n;
 int c;
 
-#define LINE	4096
+#define LINE	1024
 
 void main(int argc,char* argv[])
 {
@@ -19,7 +19,7 @@ void main(int argc,char* argv[])
 	{
 		return;
 	}
-	fprintf(fo,"const unsigned char IopNormalCode []=\n{");
+	fprintf(fo,"const unsigned char IopStandbyCode []=\n{");
 	n = 0;
 	
 	int cnt = LINE*16;

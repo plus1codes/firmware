@@ -1,4 +1,6 @@
+#include <stdio.h>
 #include "common.h"
+
 
 #ifdef DEBUG_ENABLE
 
@@ -26,15 +28,37 @@ void print_data()
     }
 }
 
+#if defined(SDCC)
+#if __SDCC_VERSION_MAJOR > 3
 int putchar (int c)
+#else
+void putchar (char c)
+#endif
 {
     prn_data[prn_in] = (char)c;
     prn_in = (prn_in+1)%DEBUG_BUF;
-    IOP_DATA7_H = 0x32;
+
     if((PRINTF_REG_IOP_2_RISC & PRINTF_TX_EMPTY_MASK) == 0x0)
     {
         PRINTF_REG_IOP_2_RISC = PRINTF_REG_IOP_2_RISC|PRINTF_TX_EMPTY_MASK;
     }
-    return c;
+#if __SDCC_VERSION_MAJOR > 3		
+		return c;
+#endif		
 }
+
+#else
+char putchar (char c)
+{
+    prn_data[prn_in] = (char)c;
+    prn_in = (prn_in+1)%DEBUG_BUF;
+
+    if((PRINTF_REG_IOP_2_RISC & PRINTF_TX_EMPTY_MASK) == 0x0)
+    {
+        PRINTF_REG_IOP_2_RISC = PRINTF_REG_IOP_2_RISC|PRINTF_TX_EMPTY_MASK;
+    }
+		return c;
+}
+#endif //end #ifdef SDCC
+
 #endif

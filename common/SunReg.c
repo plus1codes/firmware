@@ -13,9 +13,9 @@ unsigned char IDATA IOP_IM_Base_31_24    AT        0x33;    /*31:24*/
 unsigned char IDATA IOP_DM_Base_23_16    AT        0x35;    /*23:16*/
 unsigned char IDATA IOP_DM_Base_31_24    AT        0x36;    /*31:24*/
 
-//Setting for Interrupt 
+//Setting for Interrupt
 //bit0:Timer1 interrupt;bit1:Timer0 interrupt; bit2:External interrupt(IR/RTC/SPI/UART wakup)
-//bit3:XDM cache miss in power down mode; bit4:Access XDM during cache flushing; 
+//bit3:XDM cache miss in power down mode; bit4:Access XDM during cache flushing;
 //bit5:IM cache miss in power down mode
 unsigned char IDATA IntMask             AT        0x38;
 unsigned char IDATA IntFlag             AT        0x39;
@@ -23,7 +23,7 @@ unsigned char IDATA Trigger2risc        AT        0x3A;
 
 
 //Cache Control
-//[6:0]  0:none;1:2 lines are checked; 0x7F 4KB are checkd 
+//[6:0]  0:none;1:2 lines are checked; 0x7F 4KB are checkd
 unsigned char IDATA XDM_Cache_Flush_LINE_NO     AT        0x3B;
 unsigned char IDATA XDM_CacheCtrl               AT        0x3C;
 
@@ -57,7 +57,7 @@ unsigned char IDATA IOP_INT_FLAG3               AT        0x4E;
 
 /*=====================================================================
 MailBox
-should pay attentation to the using of mailbox 
+should pay attentation to the using of mailbox
 including addressig mode
 =====================================================================*/
 unsigned char IDATA IOP_DATA0_L                 AT        0x50;
@@ -73,7 +73,7 @@ unsigned char IDATA IOP_DATA4_H                 AT        0x59;
 unsigned char IDATA IOP_DATA5_L                 AT        0x5A;
 unsigned char IDATA IOP_DATA5_H                 AT        0x5B;
 unsigned char IDATA IOP_DATA6_L                 AT        0x5C;
-unsigned char IDATA IOP_DATA6_H                 AT        0x5D;    
+unsigned char IDATA IOP_DATA6_H                 AT        0x5D;
 unsigned char IDATA IOP_DATA7_L                 AT        0x5E;
 unsigned char IDATA IOP_DATA7_H                 AT        0x5F;
 unsigned char IDATA IOP_DATA8_L                 AT        0x60;
@@ -85,7 +85,7 @@ unsigned char IDATA IOP_DATA10_H                AT        0x65;
 unsigned char IDATA IOP_DATA11_L                AT        0x66;
 unsigned char IDATA IOP_DATA11_H                AT        0x67;
 
-//For RTC Timer 
+//For RTC Timer
 unsigned char IDATA SYS_RTC_TIMER_A             AT        0x68;
 unsigned char IDATA SYS_RTC_TIMER_B             AT        0x69;
 unsigned char IDATA SYS_RTC_TIMER_C             AT        0x6A;
@@ -109,6 +109,5 @@ unsigned char IDATA XDMDATA_IN_HH               AT        0x77;
 //8051 access the chip whole space by bank address
 unsigned char IDATA XDM_Bank_ADR_HH             AT        0x78;
 unsigned char IDATA XDM_Bank_ADR_HL             AT        0x79;
-
 
 #endif

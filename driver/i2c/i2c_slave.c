@@ -1,3 +1,4 @@
+#include "common.h"
 #include "i2c_slave_common.h"
 #include "i2c_slave.h"
 #include "string.h"
@@ -7,9 +8,13 @@ unsigned char IDATA rw_flag = 0;    //0:write  1:read
 unsigned int  SCL_PORT,SDA_PORT,SCL_BIT,SDA_BIT,I2C_SLAVE_ADDR;
 
 void i2c_scl_set_in_mode()                  {    I2C_SCL_CFG &=~ (1<<I2C_SCL_BIT);         }
+//void i2c_scl_set_out_mode()                 {    I2C_SCL_CFG |=  (1<<I2C_SCL_BIT);         }
 
 void i2c_sda_set_in_mode()                  {    I2C_SDA_CFG &=~ (1<<I2C_SDA_BIT);         }
 void i2c_sda_set_out_mode()                 {    I2C_SDA_CFG |=  (1<<I2C_SDA_BIT);         }
+
+//void I2C_SCL_OUT_H()                        {    I2C_SDA_PORT_OUT |=  (1<<I2C_SCL_BIT);    }
+//void I2C_SCL_OUT_L()                        {    I2C_SDA_PORT_OUT &=~ (1<<I2C_SCL_BIT);    }
 
 void I2C_SDA_OUT_H()                        {    I2C_SDA_PORT_OUT |=  (1<<I2C_SDA_BIT);    }
 void I2C_SDA_OUT_L()                        {    I2C_SDA_PORT_OUT &=~ (1<<I2C_SDA_BIT);    }
@@ -210,14 +215,12 @@ void i2c_slave_init()
 void i2c_slave_hanle(void)
 {
     i2c_slave_init();
-
     while(1)
     {
         i2c_slave_protocol();
-
         if(i2c_status == I2C_SLAVE_IDLE)
         {
-            if((IOP_DATA0_L & I2C_ENABLE_BIT) == 0)
+            if((I2C_SLAVE_CTL & I2C_ENABLE_BIT) == 0)
             {
                 diag_printf("  [i2c slave] out \n");
                 break;

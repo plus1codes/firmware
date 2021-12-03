@@ -7,7 +7,7 @@
 #define AT                     __at
 #define INTERRUPT_VECTOR       __interrupt
 #define IDATA                  __idata
-#define XDATA                  __xdata
+//#define XDATA                  __xdata
 #define CODE                   __code
 #else
 #define SFR                    sfr
@@ -22,6 +22,3 @@
 
 
 #endif
-
-
-

@@ -13,16 +13,16 @@ IDATA AT (0x33) unsigned char IOP_IM_Base_31_24;          /*31:24*/
 IDATA AT (0x35) unsigned char IOP_DM_Base_23_16;          /*23:16*/
 IDATA AT (0x36) unsigned char IOP_DM_Base_31_24;          /*31:24*/
 
-//Setting for Interrupt 
+//Setting for Interrupt
 //bit0:Timer1 interrupt;bit1:Timer0 interrupt; bit2:External interrupt(IR/RTC/SPI/UART wakup)
-//bit3:XDM cache miss in power down mode; bit4:Access XDM during cache flushing; 
+//bit3:XDM cache miss in power down mode; bit4:Access XDM during cache flushing;
 //bit5:IM cache miss in power down mode
 IDATA AT (0x38) unsigned char IntMask;
 IDATA AT (0x39) unsigned char IntFlag;
 IDATA AT (0x3A) unsigned char Trigger2risc;
 
 //Cache Control
-//[6:0]  0:none;1:2 lines are checked; 0x7F 4KB are checkd 
+//[6:0]  0:none;1:2 lines are checked; 0x7F 4KB are checkd
 IDATA AT (0x3B) unsigned char XDM_Cache_Flush_LINE_NO;
 IDATA AT (0x3C) unsigned char XDM_CacheCtrl;
 
@@ -53,7 +53,7 @@ IDATA AT (0x4E) unsigned char IOP_INT_FLAG3;
 
 /*=====================================================================
 MailBox
-should pay attentation to the using of mailbox 
+should pay attentation to the using of mailbox
 including addressig mode
 =====================================================================*/
 IDATA AT (0x50) unsigned char IOP_DATA0_L;
@@ -69,7 +69,7 @@ IDATA AT (0x59) unsigned char IOP_DATA4_H ;
 IDATA AT (0x5A) unsigned char IOP_DATA5_L ;
 IDATA AT (0x5B) unsigned char IOP_DATA5_H ;
 IDATA AT (0x5C) unsigned char IOP_DATA6_L ;
-IDATA AT (0x5D) unsigned char IOP_DATA6_H ;    
+IDATA AT (0x5D) unsigned char IOP_DATA6_H ;
 IDATA AT (0x5E) unsigned char IOP_DATA7_L ;
 IDATA AT (0x5F) unsigned char IOP_DATA7_H ;
 IDATA AT (0x60) unsigned char IOP_DATA8_L ;
@@ -81,7 +81,7 @@ IDATA AT (0x65) unsigned char IOP_DATA10_H;
 IDATA AT (0x66) unsigned char IOP_DATA11_L;
 IDATA AT (0x67) unsigned char IOP_DATA11_H;
 
-//For RTC Timer 
+//For RTC Timer
 IDATA AT (0x68) unsigned char SYS_RTC_TIMER_A;
 IDATA AT (0x69) unsigned char SYS_RTC_TIMER_B;
 IDATA AT (0x6A) unsigned char SYS_RTC_TIMER_C;
@@ -97,7 +97,7 @@ IDATA AT (0x70) unsigned char XDMDATA_OUT_HH;
 IDATA AT (0x71) unsigned char XDMDATA_OUT_HL;
 IDATA AT (0x72) unsigned char XDMDATA_OUT_LH;
 IDATA AT (0x73) unsigned char XDMDATA_OUT_LL;
-                     
+
 IDATA AT (0x74) unsigned char XDMDATA_IN_LL;
 IDATA AT (0x75) unsigned char XDMDATA_IN_LH;
 IDATA AT (0x76) unsigned char XDMDATA_IN_HL;
@@ -120,12 +120,12 @@ SFR AT (0xB6) GPIO_IO6_CFG;
 SFR AT (0xB7) GPIO_IO7_CFG;
 SFR AT (0x98) GPIO_IO8_CFG;
 SFR AT (0x99) GPIO_IO9_CFG;
-SFR AT (0x9A) GPIO_IO10_CF;
-SFR AT (0x9B) GPIO_IO11_CF;
-SFR AT (0x9C) GPIO_IO12_CF;
-SFR AT (0x9D) GPIO_IO13_CF;
-SFR AT (0x9E) GPIO_IO14_CF;
-SFR AT (0x9F) GPIO_IO15_CF;
+SFR AT (0x9A) GPIO_IO10_CFG;
+SFR AT (0x9B) GPIO_IO11_CFG;
+SFR AT (0x9C) GPIO_IO12_CFG;
+SFR AT (0x9D) GPIO_IO13_CFG;
+SFR AT (0x9E) GPIO_IO14_CFG;
+SFR AT (0x9F) GPIO_IO15_CFG;
 
 
 //General Purpose Output   (Read/Write)
@@ -164,7 +164,8 @@ SFR AT (0xED) GPIO_PORT13_IN;
 SFR AT (0xEE) GPIO_PORT14_IN;
 SFR AT (0xEF) GPIO_PORT15_IN;
 
-
+SFR AT (0xF4) POWER_CONTROL;
+SFR AT (0xF5) POWER_GATE;
 #else  //Keil compiler
 
 
@@ -176,9 +177,9 @@ extern unsigned char IDATA IOP_IM_Base_31_24 ;    /*31:24*/
 extern unsigned char IDATA IOP_DM_Base_23_16 ;     /*23:16*/
 extern unsigned char IDATA IOP_DM_Base_31_24 ;     /*31:24*/
 
-//Setting for Interrupt 
+//Setting for Interrupt
 //bit0:Timer1 interrupt;bit1:Timer0 interrupt; bit2:External interrupt(IR/RTC/SPI/UART wakup)
-//bit3:XDM cache miss in power down mode; bit4:Access XDM during cache flushing; 
+//bit3:XDM cache miss in power down mode; bit4:Access XDM during cache flushing;
 //bit5:IM cache miss in power down mode
 extern  unsigned char IDATA IntMask          ;
 extern  unsigned char IDATA IntFlag          ;
@@ -186,7 +187,7 @@ extern  unsigned char IDATA Trigger2risc     ;
 
 
 //Cache Control
-//[6:0]  0:none;1:2 lines are checked; 0x7F 4KB are checkd 
+//[6:0]  0:none;1:2 lines are checked; 0x7F 4KB are checkd
 extern unsigned char IDATA XDM_Cache_Flush_LINE_NO    ;
 extern unsigned char IDATA XDM_CacheCtrl              ;
 
@@ -218,7 +219,7 @@ extern unsigned char IDATA IOP_INT_FLAG3                 ;
 
 /*=====================================================================
 MailBox
-should pay attentation to the using of mailbox 
+should pay attentation to the using of mailbox
 including addressig mode
 =====================================================================*/
 extern unsigned char IDATA IOP_DATA0_L     ;
@@ -246,7 +247,7 @@ extern unsigned char IDATA IOP_DATA10_H    ;
 extern unsigned char IDATA IOP_DATA11_L    ;
 extern unsigned char IDATA IOP_DATA11_H    ;
 
-//For RTC Timer 
+//For RTC Timer
 extern unsigned char IDATA SYS_RTC_TIMER_A    ;
 extern unsigned char IDATA SYS_RTC_TIMER_B    ;
 extern unsigned char IDATA SYS_RTC_TIMER_C    ;
@@ -261,15 +262,16 @@ extern unsigned char IDATA XDMDATA_OUT_HH ;
 extern unsigned char IDATA XDMDATA_OUT_HL ;
 extern unsigned char IDATA XDMDATA_OUT_LH ;
 extern unsigned char IDATA XDMDATA_OUT_LL ;
- 
+
 extern unsigned char IDATA XDMDATA_IN_LL ;
 extern unsigned char IDATA XDMDATA_IN_LH ;
 extern unsigned char IDATA XDMDATA_IN_HL ;
 extern unsigned char IDATA XDMDATA_IN_HH ;
- 
+
 //8051 access the chip whole space by bank address
 extern unsigned char IDATA XDM_Bank_ADR_HH ;
 extern unsigned char IDATA XDM_Bank_ADR_HL ;
+
 
 //General Purpose Output Enable  (Read/Write)
 //"1" for Output and "0" for Input
@@ -327,10 +329,12 @@ SFR GPIO_PORT13_IN = 0xED    ;
 SFR GPIO_PORT14_IN = 0xEE    ;
 SFR GPIO_PORT15_IN = 0xEF    ;
 
+SFR POWER_CONTROL = 0xF4    ;
+SFR POWER_GATE    = 0xF5    ;
 #endif
 
 
-#define IM_BASE_7_0                IOP_IM_Base_7_0 
+#define IM_BASE_7_0                IOP_IM_Base_7_0
 #define IM_BASE_15_8               IOP_IM_Base_15_8
 #define IM_BASE_23_16              IOP_IM_Base_23_16
 #define IM_BASE_31_24              IOP_IM_Base_31_24
@@ -359,33 +363,33 @@ SFR GPIO_PORT15_IN = 0xEF    ;
 #define RESUME_PC_23_16            IOP_RESUME_PCH_0
 #define RESUME_PC_31_24            IOP_RESUME_PCH_1
 
-#define INTERRUPT1_MASK            IOP_INT_MASK1_B 
-#define INTERRUPT1_FLAG            IOP_INT_FLAG1 
-#define INTERRUPT2_MASK            IOP_INT_MASK2_B 
-#define INTERRUPT2_FLAG            IOP_INT_FLAG2 
-#define INTERRUPT3_MASK            IOP_INT_MASK3_B 
-#define INTERRUPT3_FLAG            IOP_INT_FLAG3 
+#define INTERRUPT1_MASK            IOP_INT_MASK1_B
+#define INTERRUPT1_FLAG            IOP_INT_FLAG1
+#define INTERRUPT2_MASK            IOP_INT_MASK2_B
+#define INTERRUPT2_FLAG            IOP_INT_FLAG2
+#define INTERRUPT3_MASK            IOP_INT_MASK3_B
+#define INTERRUPT3_FLAG            IOP_INT_FLAG3
 
-#define MAILBOX_DATA0_7_0          IOP_DATA0_L 
-#define MAILBOX_DATA0_15_8         IOP_DATA0_H 
-#define MAILBOX_DATA1_7_0          IOP_DATA1_L 
-#define MAILBOX_DATA1_15_8         IOP_DATA1_H 
-#define MAILBOX_DATA2_7_0          IOP_DATA2_L 
-#define MAILBOX_DATA2_15_8         IOP_DATA2_H 
-#define MAILBOX_DATA3_7_0          IOP_DATA3_L 
-#define MAILBOX_DATA3_15_8         IOP_DATA3_H 
-#define MAILBOX_DATA4_7_0          IOP_DATA4_L 
-#define MAILBOX_DATA4_15_8         IOP_DATA4_H 
-#define MAILBOX_DATA5_7_0          IOP_DATA5_L 
-#define MAILBOX_DATA5_15_8         IOP_DATA5_H 
-#define MAILBOX_DATA6_7_0          IOP_DATA6_L 
-#define MAILBOX_DATA6_15_8         IOP_DATA6_H 
-#define MAILBOX_DATA7_7_0          IOP_DATA7_L 
-#define MAILBOX_DATA7_15_8         IOP_DATA7_H 
-#define MAILBOX_DATA8_7_0          IOP_DATA8_L 
-#define MAILBOX_DATA8_15_8         IOP_DATA8_H 
-#define MAILBOX_DATA9_7_0          IOP_DATA9_L 
-#define MAILBOX_DATA9_15_8         IOP_DATA9_H 
+#define MAILBOX_DATA0_7_0          IOP_DATA0_L
+#define MAILBOX_DATA0_15_8         IOP_DATA0_H
+#define MAILBOX_DATA1_7_0          IOP_DATA1_L
+#define MAILBOX_DATA1_15_8         IOP_DATA1_H
+#define MAILBOX_DATA2_7_0          IOP_DATA2_L
+#define MAILBOX_DATA2_15_8         IOP_DATA2_H
+#define MAILBOX_DATA3_7_0          IOP_DATA3_L
+#define MAILBOX_DATA3_15_8         IOP_DATA3_H
+#define MAILBOX_DATA4_7_0          IOP_DATA4_L
+#define MAILBOX_DATA4_15_8         IOP_DATA4_H
+#define MAILBOX_DATA5_7_0          IOP_DATA5_L
+#define MAILBOX_DATA5_15_8         IOP_DATA5_H
+#define MAILBOX_DATA6_7_0          IOP_DATA6_L
+#define MAILBOX_DATA6_15_8         IOP_DATA6_H
+#define MAILBOX_DATA7_7_0          IOP_DATA7_L
+#define MAILBOX_DATA7_15_8         IOP_DATA7_H
+#define MAILBOX_DATA8_7_0          IOP_DATA8_L
+#define MAILBOX_DATA8_15_8         IOP_DATA8_H
+#define MAILBOX_DATA9_7_0          IOP_DATA9_L
+#define MAILBOX_DATA9_15_8         IOP_DATA9_H
 #define MAILBOX_DATA10_7_0         IOP_DATA10_L
 #define MAILBOX_DATA10_15_8        IOP_DATA10_H
 #define MAILBOX_DATA11_7_0         IOP_DATA11_L
