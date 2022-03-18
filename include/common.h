@@ -10,7 +10,7 @@
 #include "sunplus8051.h"
 
 /*  printf out enable, store data in IOP_DATA8, output by arm926 */
-#define DEBUG_ENABLE
+//#define DEBUG_ENABLE
 
 /* timer select */
 #define TIME0_MODE0              /*  118.51us */

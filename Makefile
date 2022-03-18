@@ -164,7 +164,7 @@ disasm: $(TARGET_OUT).hex
 
 clean:
 	$(Pecho) "Clean....."
-	@$(RM) $(BUILD_DIR)
+	@$(RM) $(BUILD_DIR) $(OUTPUT_DIR)
 
 p-%:
 #	$(Pecho) "$* is '$($*)'"
